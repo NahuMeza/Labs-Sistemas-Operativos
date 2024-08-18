@@ -12,3 +12,9 @@ sort -k 5nr weather_cordoba.in | head -n 1| awk -F' ' '{print $1, $2, $3}'
  #Dia de menor temperatura
 sort -k 6n weather_cordoba.in | head -n 1| awk -F' ' '{print $1, $2, $3}'
 #EJERCICIO 5 
+sort -k 3n atpplayers.in
+#EJERCICIO 6
+awk -F' ' '{print $0, $7 - $8}' superliga.in | sort -k 2nr -k 9nr | awk -F' ' '{$9 = ""; print $0}' | cat -n
+#EJERCICIO 7
+ip address | grep "link/ether"
+#EJERCICIO 8
