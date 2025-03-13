@@ -99,6 +99,7 @@ void execute_pipeline(pipeline apipe){
         builtin_run(pipeline_front(apipe));
         return;
     }
+
     //para no dejar procesos zombies
     if (!pipeline_get_wait(apipe)){
         signal(SIGCHLD,SIG_IGN);
@@ -179,15 +180,14 @@ void execute_pipeline(pipeline apipe){
             execute_command(cmd);
         }
 
-        // Proceso Hijo
+        // Proceso Padre
         else if(fork_id > 0){
 
             // En caso de haber creado un hijo que no sea el primero,
             // cerramos el file descriptor del proceso anterior que no utiliza el padre.
             if(i > 1){
-
-            close(pipe0[0]);
-            close(pipe0[1]);
+                close(pipe0[0]);
+                close(pipe0[1]);
             }
 
             // Vamos eliminando el primer elemento del pipeline con cada iteracion
