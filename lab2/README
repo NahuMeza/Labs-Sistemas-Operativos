@@ -1,0 +1,31 @@
+## SO LAB2 GRUPO 06 - SEMAPHORES
+
+---
+## Lo que hicimos
+
+-[sem_syscall.c](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/kernel/sem_syscall.c): Syscalls para utilizar semaforos, reside en el kernel, Se encuentra la funcion make_sem_array (funcion que se inicializa en el [main.c](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/kernel/main.c) para crear el arreglo de semaforos), sem_open, sem_close, sem_up, sem_down. Para que estas syscall funcionen correctamente se modificaron archivos .h y .c en el kernel ~~ y un archivo .pl en user ~~ para implementarlas ([defs.h](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/kernel/defs.h), [syscall.c](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/kernel/syscall.c), [syscall.h](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/kernel/syscall.h), [sysproc.c](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/kernel/sysproc.c), [usys.pl](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/user/usys.pl)).
+
+-[pingpong.c](https://bitbucket.org/sistop-famaf/so24lab2g06/src/master/user/pingpong.c): Archivo que reside en el user, y que puede ser utilizado ya dentro del SO xv6. Utiliza las syscall de semaforos, y emula el funcionamiento de un pinpong, eligiendo *x* cantidad de rebotes de la forma `pingpong x`. Los semaforos comunican al hijo y al padre para que tenga un correcto funcionamiento.
+
+---
+
+## Uso de pingpong
+
+Teniendo previamente instalado qemu y el SO xv6 se ejecuta en consola dentro de este archivo:
+
+```
+make qemu
+pinpong x
+```
+
+---
+## Como trabajamos
+
+- Realizamos llamadas semanales en las cuales haciamos turnos para programar cada uno entre commits.
+- El integrante que programaba tambien transmitia para el resto del grupo.
+- Nos dividimos tareas para trabajar con mas eficiencia.
+- Todo codigo realizado de forma individual luego era puesto en comun,
+  discutido o modificado con el resto.
+
+---
+*LCC - Salvador Amor, Sara Ferreyra, Franco Aredes, Nahuel Meza*
